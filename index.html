@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camingsoon page</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="bg-cover bgcover-img3  " style="min-height: 70vh; width: 100%;">
+       <h1 class="text-center font-poppins  text-gradient spacingtop-6 fontSize-h1 fw-bold fs-sm-1 size-sm-h1">We are <br> coming soon </h1>
+       <p class="text-center font-poppins pt-4 fw-bold">Lorem ipsum Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Voluptatibus, dolorum! dolor sit amet consectetur adipisicing elit. Vero, iure.</p>
+   <p class="fs-1 pt-5 fw-bold d-flex justify-between  container ws-sm-30 pt-3">
+       <span id="countDown" class=" text-gradient text-center" style="width: 100%;">
+        
+    </span>
+     
+   </p>
+ <div class="time_text d-flex justify-center pb-5">
+    <span class='hours  '><h3>Houres</h3></span>
+    <span class='minutes'><h3>Minutes</h3></span>
+    <span class='seconds  '><h3>Sceonds</h3></span>
+
+ </div>
+   <h1 class="fs-1 pt-5 text-center t-c fw-bold pb-4 ">Camingsoon</h1>
+   <div class="objectimg1  bgcover-img1 "></div>
+   <div class="objectimg2  bgcover-img2 "></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <script>
+       function countDownTimer(date) {
+  var elem = $('#countDown');
+ 
+ //$( "p" ).add( "div" ).addClass( "widget" );
+  var futureTime = new Date(date).getTime();
+
+  setInterval(function() { 
+    // Time left between future and current time in Seconds
+    var timeLeft = Math.floor( (futureTime - new Date().getTime()) / 1000 );
+    // console.log(timeLeft);
+    
+    // Days left = time left / Seconds per Day 
+    var days =  Math.floor(timeLeft / 86400);
+    // console.log(days);
+    
+    // 86400 seconds per Day
+    timeLeft -= days * 86400;
+    // console.log(timeLeft);
+    
+    // Hours left = time left / Seconds per Hour
+    var hours = Math.floor(timeLeft / 3600) % 24;
+    // console.log(hours);
+
+    // 3600 seconds per Hour
+    timeLeft -= hours * 3600;
+    // console.log(timeLeft);
+    
+    // Minutes left = time left / Minutes per Hour
+    var min = Math.floor(timeLeft / 60) % 60;
+    // console.log(min);
+    
+    // 60 seconds per minute
+    timeLeft -= min * 60;
+    // console.log(timeLeft);
+    
+    // Seconds Left
+    var sec = timeLeft % 60;
+    
+    // Combined DAYS+HOURS+MIN+SEC
+    var timeString =
+                     "<span class='hours p-4 '>"+hours+"  "+"</span>"+
+                     "<span class='minutes p-4  text-white'>"+min+" "+"</span>"+
+                     "<span class='seconds p-4 '>"+sec+"  "+"</span>";
+                     
+    elem.html(timeString);
+    
+  }, 1000);
+}
+
+// Enter date in this format: January 1, 2017 12:00:00
+countDownTimer('October 22, 2016 09:00:00');
+
+    </script>
+    </body>
+</html>
